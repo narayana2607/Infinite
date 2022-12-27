@@ -1,0 +1,108 @@
+.navbar{
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    font-weight: bolder;
+    justify-content: space-between;
+    padding: px 21px;
+    align-items: center;
+    background-color: white;
+    color: rgb(0, 0, 0);
+    /* cursor: pointer; */
+}
+.navbar .logo .logo-h{
+    font-size: 2.4rem;
+    /* cursor: pointer; */
+}
+.navbar .classlists{
+    list-style: none;
+    width:23%;
+    /* background-color: white; */
+    padding: 1%;
+    border-radius: 60%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+.navbar .search{
+    width: 20%;
+    /* height: vh; */
+    border-radius: 20px;
+}
+.navbar .search input{
+    width: 100%;
+    font-size: 1.3rem;
+    height: 100%;
+    background-color: rgb(225, 194, 249);
+    /* color-text: rgb(13, 13, 13); */
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 25px;
+    /* cursor: pointer; */
+}
+/* .navbar .buttons{
+    width: 4%;
+    display: box;
+    justify-content: none;
+    border-radius: 0px;
+    cursor: pointer;
+
+    
+} */
+.navbar .buttons button{
+    padding: 9px 28px;
+    /* align-items: center; */
+    background-color: #11db7600;
+    
+    color: rgb(227, 228, 232);
+    border: 3px solid ;
+    font-size: 1.99rem;
+    
+    border-radius: 97px;
+    cursor: pointer;
+}
+.banner img{
+    width: 100vw;
+    height: 88vh;
+    /* cursor: pointer; */
+    
+}
+.apple img{
+    width: 100vw;
+    height: 77vh;
+    /* cursor: pointer; */
+}
+
+.health img{
+    width: 100vw;
+    height: 75vh;
+    /* cursor: pointer; */
+}
+.cloud img{
+    width: 101vw;
+    height: 75vh;
+    /* cursor: pointer; */
+}
+.tele img{
+    width: 106vw;
+    height: 75vh;
+    /* cursor: pointer; */
+}
+.turb img{
+    width: 101vw;
+    height: 75vh;
+    /* cursor: pointer; */
+}
+.talent img{
+    width: 101vw;
+    height: 75;
+    /* cursor: pointer; */
+}
+.engi img{
+    width: 101vw;
+    height: 75vh;
+    /* cursor: pointer; */
+}
