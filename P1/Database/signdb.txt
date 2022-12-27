@@ -1,0 +1,15 @@
+drop database if exists Signin;
+create database Signin;
+use Signin;
+
+create table Signin
+(
+  Apple_Id int primary key auto_increment,
+  Mobile_No varchar(10),
+  Passcode varchar(10)
+);
+
+Insert into Signin(Apple_Id,Mobile_No,Passcode)
+values(1,1234567890,'qwertyuiop'),
+(2,2312345643,'Dramahjkqj'),
+(3,'Satirekius');

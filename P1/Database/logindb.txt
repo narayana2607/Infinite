@@ -1,0 +1,14 @@
+drop database if exists Login;
+create database Login;
+use Login;
+
+create table Login
+(
+  Apple_Id int primary key auto_increment,
+  Passcode varchar(10)
+);
+
+Insert into Login(Apple_Id,Passcode)
+values(1,'qwertyuiop'),
+(2,'Dramahjkqj'),
+(3,'Satirekius');
