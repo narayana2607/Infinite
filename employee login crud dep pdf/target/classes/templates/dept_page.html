@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infinite_Employee_Dept</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet"	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>	
+</head>
+
+<style>
+
+.index{
+	margin: auto ;
+	padding:12px ;
+  	border-radius: 10px ;
+  	text-align: center;
+  	cursor: pointer;
+  	width: 180px;
+	text-decoration: none;   	
+}
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 14px;
+    background-color:black;
+    color: #fff;
+    font-size: 25px;
+}
+
+</style>
+	<body>
+			<div class="container-fluid p-3 bg-dark p-1 text-info  text-center"><br>
+				<h1 class="font-weight-bold"> INFINITE COMPUTER SOLUTIONS (INDIA) LIMITED</h1>
+				<h4>Hyderabad</h4>
+			</div>
+		
+		
+			<nav class="navbar navbar-dark bg-dark p-3" >
+			<form class="form-inline " >  
+				    <a th:href="@{/}" class="btn btn-outline-light p-2 shadow-lg "> HOME PAGE</a>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+				  	<a th:href="@{/about}" class="btn btn-outline-light  shadow-lg p-2 "> ABOUT</a>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+			</form>	
+						
+				<div id="navbar">
+					<a th:href="@{/logout}" class="btn btn-danger rounded">Logout</a>
+				</div>
+				
+			</nav><br>
+			
+				<nav class="navbar" >
+					<h2 class="text-white border border-success rounded mx-auto bg-primary font-weight-bold shadow  p-3 mb-5">Welcome to Departments!</h2>
+				</nav>
+				
+				
+			<div class="container text-center p-5 text-bold"  >
+				<a th:href="@{/employeeindex}" class="btn btn-outline-dark btn-lg p-5 shadow-lg rounded-circle"> EEE <span class="badge rounded-pill bg-success float-end">0</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a th:href="@{/employeeindex}" class="btn btn-outline-dark btn-lg p-5 shadow-lg rounded-circle">
+					 CSE <span class="badge rounded-pill bg-success float-end ">21</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a th:href="@{/employeeindex}" class="btn btn-outline-dark btn-lg p-5 rounded-circle shadow-lg"> ECE <span class="badge rounded-pill bg-success float-end">0</span></a>&nbsp;&nbsp;&nbsp;
+								
+			</div><br>
+
+
+			<div>
+				<footer>
+					<h4 class="bg-success p-2 text-center">Welcome <span sec:authentication="principal.username"> User</span></h4>
+					<marquee scrollamount="12" width="100%" direction="left" height="20%">© 2023 Infinite Computer Solutions</marquee>
+		    	</footer>
+			</div>
+				
+			
+			
+		
+		
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNVeK5T" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

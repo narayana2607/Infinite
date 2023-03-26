@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infinite_Employee</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body>
+
+		<div class="container-fluid p-4 bg-dark p-3 text-white text-center">
+			<h1> Infinite Computer Solutions Limited.</h1>
+			<h4>Hyderabad</h4>
+		</div><br>
+	
+	<div class="container ">
+			<div class="bg-warning p-3" >
+				<h2 >Employee Registration Page</h2>
+			</div><hr>
+		
+		
+		<form action="#" th:action="@{/save}" th:object="${employee}" method="post">
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>Employee Name:</td>
+					<td><input type="text" th:field="*{name}" required/></td>
+				</tr>
+				<tr>
+					<td>Mobile No:</td>
+					<td><input type="tel" th:field="*{mobile}" pattern=[0-9]{10}/></td>
+				</tr>				
+				<tr>
+					<td>Email:</td>
+					<td><input type="text" th:field="*{email}" required/></td>
+				</tr>	
+				<tr>
+					<td>Department:</td>
+					<td><input type="text" th:field="*{department}" required/></td>
+				</tr>			
+				<tr>
+					<td>Salary:</td>
+					<td><input type="text" th:field="*{Salary}" required/></td>
+				</tr>				
+				<tr>
+					<td colspan="2"><button type="submit" class="btn-success rounded btn-lg">Save</button></td>
+				</tr>
+			</table>
+		</form>
+		
+	</div>
+</body>
+</html>

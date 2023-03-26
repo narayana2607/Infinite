@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <title>Infinite_Image Upload</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>	
+ </head>
+ 
+ <style>
+ footer {
+    display: flex;
+    justify-content: center;
+    padding: 18.8px;
+    background-color:black;
+    color: #fff;
+    font-size: 30px;
+}</style>
+  <body>
+
+        <div class="container-fluid p-4 bg-dark p-1 text-white text-center">
+				<h1 class="font-weight-bold"> Infinite Computer Solutions Limited.</h1>
+          <h4>Hyderabad</h4><br><br>
+      </div>
+      
+
+      <nav class="navbar navbar-dark bg-dark text-center" >
+        <p> 
+            <a th:href="@{/}" class="btn btn-outline-light  p-2 text-center "> HOME PAGE</a> &nbsp;&nbsp;&nbsp;            
+            <a href="/image/display"  class="btn btn-outline-light  p-2 ">VIEW IMAGES</a>&nbsp; &nbsp; &nbsp;
+            <a th:href="@{/about}" class="btn btn-outline-light  p-2 "> ABOUT</a>&nbsp;&nbsp;&nbsp;
+         </p>
+
+         <div id="navbar">
+          <a th:href="@{/logout}" class="btn btn-danger ">Logout</a>
+        </div>
+	</nav><BR>
+			
+	<div class="container text-center ">
+	<a  href="/image/display" style="float:left;" class="btn btn-success text-right ">Show All</a>
+	</div>
+	<div class="contact py-sm-5 ">
+			<div class="container py-xl-4 py-lg-1">
+			<form id="form">
+				<div class="contact-grids1 w3agile-6">
+					<div class="row">
+						<div class=" contact-form1 form-group">
+							<label class="col-form-label">Name</label>
+							<input type="text" class="form-control" placeholder="Product Name" id="name" name="name" required="required">
+							<p id="error_name"></p>
+						</div>
+						
+						<div class=" contact-form1 form-group">
+							<label class="col-form-label">Image</label>
+							<input type="file" class="form-control" placeholder="" name="image" id="image" required="required">
+							<p id="error_file"></p>
+						</div>
+						<div class=" contact-form1 form-group">
+							<label class="col-form-label">Price</label>
+							<input type="text" class="form-control" placeholder="Price" name="price" id="price" required="required">
+							<p id="error_price"></p>
+						</div>
+					</div>
+					
+						<div class="right-w3l">
+							<input type="button" id="submit" class="btn btn-primary form-control" value="Submit">
+							<br><br>
+						</div>
+						
+				</div>
+				
+				<div id="success" class="text-center" style="color:green;"></div>
+				<div id="error" class="text-center" style="color:red;"></div>
+			</form>
+			</div>
+		</div>
+			<div><br>
+				<footer>
+					<h4 class="bg-success p-2 text-center">Welcome <span sec:authentication="principal.username"> User</span></h4>
+					<marquee scrollamount="12" width="100%" direction="left" height="20%">© 2023 Infinite Computer Solutions</marquee>
+		    	</footer>
+			</div>
+	
+	</body>
+	</html>

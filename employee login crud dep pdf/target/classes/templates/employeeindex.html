@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infinite_Employee</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet"	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>	
+</head>
+
+<style>
+
+.index{
+	margin: auto ;
+	padding:12px ;
+  	border-radius: 10px ;
+  	text-align: center;
+  	cursor: pointer;
+  	width: 180px;
+	text-decoration: none;   	
+}
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 35px;
+    background-color: black;
+    color: #fff;
+   font-size: 20px;
+}
+table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+  border-color: #96D4D4;
+}
+th, td {
+  background-color: #96D4D4;
+  border-color: #96D4D4;
+}
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 17px;
+    background-color:black;
+    color: #fff;
+    font-size: 30px;
+}
+
+</style>
+	<body>
+	<div class="fixed-to">
+			<div class="container-fluid p-3 bg-dark p-2 text-info  text-center ">
+				<h1 class="font-weight-bold">INFINITE COMPUTER SOLUTIONS (INDIA) LIMITED</h1>
+				<h4>Hyderabad</h4>
+			</div>
+		
+		
+			<nav class="navbar navbar-dark bg-dark" >
+				<form class="form-inline " >	    
+				    <a th:href="@{/}" class="btn btn-outline-light p-2 "> HOME PAGE</a>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+				   	<a th:href="@{/dept_page}" class="btn btn-outline-light p-2 ">DEPTPARTMENT</a>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+				  	<a href="new" class="btn btn-outline-light  p-2 ">ADD NEW EMPLOYEE </a>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+				  	<a th:href="@{/about}" class="btn btn-outline-light  p-2 "> ABOUT</a>
+				  	
+				</form >
+				
+				<form th:action="@{/employeeindex}"  class="form-inline ">
+					<input type="text" name="keyword" class="form-control mr-sm-1 " placeholder="Enter Your Text" id="keyword" size="30" th:value="${keyword}" required />
+					&nbsp;
+					<input type="submit" class="btn btn-outline-success my-2 my-sm-0 " value="Search" />&nbsp;&nbsp;
+								
+					<input type="button" class="btn btn-outline-danger my-2 my-sm-0 " value="Clear" id="btnClear" onclick="clearSearch()" /><hr>
+				</form>
+								<a href="http://localhost:9898/pdf" class="btn btn-outline-success  p-2 ">Export to PDF</a>
+				
+		   			<div id="navbar">
+						<a th:href="@{/logout}" class="btn btn-danger ">Logout</a>
+					</div>
+				
+			</nav><br>
+			
+			<nav class="navbar" >
+					<h2 class="text-white border border-success rounded mx-auto bg-primary font-weight-bold shadow  p-3 mb-2">Employee Details</h2>
+			</nav><hr>
+			
+			
+		</div>
+			
+		
+		<table class="table table-striped table-bordered text-center ">
+			<thead class="thead text-primary ">
+				<tr>
+				<th>Employee ID</th>
+				<th>Employee Name</th>
+				<th>Mobile No</th>
+				<th>Email</th>
+				<th>Department</th>
+				<th>Salary</th>			
+				
+				<th>Actions</th>				
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="employee : ${listEmployees}">
+				<td th:text="${employee.id}">Employee ID</td>
+				<td th:text="${employee.name}">Employee Name</td>
+				<td th:text="${employee.mobile}">Mobile No</td>
+				<td th:text="${employee.email}">Email</td>
+				<td th:text="${employee.department}">Department</td>
+				<td th:text="${employee.Salary}">Salary</td>
+				<td>
+					<a th:href="@{'/edit/' + ${employee.id}}" class="btn btn-outline-info rounded">UPDATE</a>&nbsp; &nbsp;&nbsp;
+					<a th:href="@{'/delete/' + ${employee.id}}" class="btn btn-outline-danger rounded">DELETE</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+			<div>
+				<footer>
+					<h4 class="bg-success p-3 text-center">Welcome <span sec:authentication="principal.username"> User</span></h4>
+					<marquee behavior="scroll" direction="right" scrollamount="15">
+					<h3>© 2023 Infinite Computer Solutions</h3>
+					<h4>            India</h4>
+					</marquee>
+				</footer>
+			</div>
+		
+	<script type="text/javascript">
+	function clearSearch() {
+		window.location = "[[@{employeeindex}]]";
+	}
+</script>	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNVeK5T" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
