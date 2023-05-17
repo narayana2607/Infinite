@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infinite_Home Page</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript"
+	src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js'
+	crossorigin='anonymous'></script>
+
+
+</head>
+
+<style>
+body {
+	font-family: Arial;
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Header/Logo Title */
+.header {
+	text-align: center;
+	background-color: #17014c;
+	color: white;
+	position: fixed;
+	width: 100%;
+	margin-bottom: 0%;
+	padding-top: 0px;
+}
+
+/* Page Content */
+footer {
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	background-color: #17014c;
+	color: #fff;
+	font-size: 15px;
+	color: white;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: white;
+	color: black;
+}
+
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 10px 16px;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+li a:hover:not(.active) {
+	background-color: #17014c;
+	text-decoration: none;
+	color: white;
+}
+
+.active {
+	background-color: #17014c;
+	text-decoration: none;
+	;
+}
+
+.user {
+	margin-left: 82%;
+	margin-top: -1%;
+	padding-bottom: 10px;
+	padding-top: 0px;
+}
+
+.home {
+	color: black;
+	font-size: 20px;
+	margin-top: 20%;
+	font-weight: 900;
+	position: fixed;
+	text-decoration: none;
+	background-color: white;
+	width: 20%;
+	padding: 14px;
+}
+
+.date {
+	display: flex;
+	font-size: 14px;
+}
+
+.logo {
+	display: flex;
+	margin-right: 90%;
+	margin-bottom: -1%;
+}
+
+.img {
+	display: flex;
+}
+
+.title1 {
+	margin-top: 1%;
+	margin-bottom: -1%;
+	padding: 1%
+}
+
+.flex-parent-element {
+	display: flex;
+	width: 50%;
+}
+
+.flex-child-element {
+	flex: 1;
+	margin: 0px;
+	margin-left: 73%;
+}
+
+.flex-child-element:first-child {
+	margin-right: 90%;
+	margin-bottom: 1%;
+	margin-left: 3%;
+}
+.details{
+margin-top: 12%;
+	margin-bottom: 1%;
+}
+
+</style>
+
+
+<body>
+
+
+	<div class="header">
+
+		<div class="title1">
+			<h4>ICS INDIA LIMITED</h4>
+		</div>
+
+
+
+		<div class="flex-parent-element">
+
+
+			<div class="flex-child-element magenta">
+			
+			<a th:href="@{/}"><img src="/image/logo2.png" alt="Company Logo" width="70"
+					height="60"></img> </a>
+				
+			</div>
+
+			<div class="flex-child-element green">
+
+				<p>
+					<span sec:authentication="principal.username"> User</span>
+				</p>
+
+
+				<div class="date">
+				
+					<div id="current_date">Date</div>&nbsp;&nbsp;&nbsp;&nbsp;
+					<div id="current_time">Hrs</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+		<ul>
+			<li><a th:href="@{/employeeindex}"><i class='fas'>&#xf0c0;</i>
+					EMPLOYEES</a></li>
+			<li><a th:href="new"> <i class='fas'>&#xf234;</i> ADD NEW
+					EMPLOYEE
+			</a></li>
+			<li><a th:href="@{/imageindex}"><i style="font-size: 17px"
+					class="fa">&#xf03e;</i> IMAGES</a></li>
+			<li><a th:href="@{/register}"><i class="fa fa-user icon"></i>
+					USER FORM</a></li>
+			<li><a th:href="@{/about}"><i style="font-size: 17px"
+					class="fa">&#xf0c9;</i> ABOUT ME!</a></li>
+			<li style="float: right"><a th:href="@{/logout}">Logout <i
+					style="font-size: 17px" class="fa">&#xf08b;</i></a></li>
+
+		</ul>
+
+	</div>
+
+
+
+<div align="center" class="details">
+	
+		<h2 class="text-success font-weight-bold">Registration Succeeded!</h2><br>
+		<span>Full NAME	:</span><span th:text="${appform.name}"></span><br/>
+		<span>Age:</span><span th:text="${appform.age}"></span><br/>
+		<span>Gender:</span><span th:text="${appform.gender}"></span><br/>
+		<span>E-mail:</span><span th:text="${appform.email}"></span><br/>
+		<span>Mobile:</span><span th:text="${appform.mobile}"></span><br/>
+		<span>DOB:</span><span th:text="${appform.birthdate}"></span><br/>
+		<span>Religion:</span><span th:text="${appform.religion}"></span><br/>
+		
+		<span>Country:</span><span th:text="${appform.comments}"></span><br/>
+		<span>State:</span><span th:text="${appform.comments}"></span><br/>
+		<span>District:</span><span th:text="${appform.comments}"></span><br/>
+		<span>Village:</span><span th:text="${appform.comments}"></span><br/>
+		<span>Note:</span><span th:text="${appform.comments}"></span><br/>
+		
+	</div><br><hr>
+	<div class="text-center">
+		<a th:href="@{/register}" class="btn btn-danger shadow-lg shadow-lg"> Back</a>
+	</div>
+	
+
+
+
+	<footer>
+		<marquee behavior="scroll" direction="right" scrollamount="12">©
+			2023 ICS (INDIA) LIMITED</marquee>
+	</footer>
+
+
+
+	<script>
+		date = new Date();
+		year = date.getFullYear();
+		month = date.getMonth() + 1;
+		day = date.getDate();
+		document.getElementById("current_date").innerHTML = day + "/" + month
+				+ "/" + year;
+	</script>
+	<script>
+		time = new Date(); // for now
+		hour = time.getHours(); // => 9
+		min = time.getMinutes(); // =>  30
+		sec = time.getSeconds(); // => 51
+		document.getElementById("current_time").innerHTML = hour + ":" + min
+				+ ":" + sec;
+	</script>
+
+</body>
+</html>

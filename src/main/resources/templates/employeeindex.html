@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infinite_Home Page</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript"
+	src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js'
+	crossorigin='anonymous'></script>
+<link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css"
+	type="text/css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+</head>
+
+<style>
+body {
+	font-family: Arial;
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.header {
+	text-align: center;
+	background-color: #17014c;
+	color: white;
+	position: fixed;
+	width: 100%;
+	margin-bottom: 0%;
+	padding-top: 0px;
+}
+
+.content {
+	padding: 20px;
+}
+
+footer {
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	background-color: #17014c;
+	color: #fff;
+	font-size: 15px;
+	color: white;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: white;
+	color: black;
+	
+}
+
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 10px 16px;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+li a:hover:not(.active) {
+	background-color: black;
+	text-decoration: none;
+	color: red;
+	border-bottom: 3px solid red;
+	background: rgba(255, 255, 255, 3.6);
+	box-shadow: 2px 22px 26px rgba(0, 0, 0, 0.4);
+}
+
+
+
+.user {
+	margin-left: 82%;
+	margin-top: -1%;
+	padding-bottom: 10px;
+	padding-top: 0px;
+}
+
+
+
+.date {
+	display: flex;
+	font-size: 14px;
+}
+
+.logo {
+	display: flex;
+	margin-right: 90%;
+	margin-bottom: -1%;
+}
+
+.img {
+	display: flex;
+}
+
+.title1 {
+	margin-top: 1%;
+	margin-bottom: -1%;
+	padding: 1%
+}
+
+.table{
+	margin-top: 8%;
+	margin-left: 0%;
+	padding-left: 2%;
+	padding-bottom: 2%;
+	
+}
+th, td{
+	border-bottom: 2px solid white;
+	background-color: #777777;
+	color: white;
+}
+
+.search {
+	margin-top: 7.5%;
+	margin-left: 72.9%;
+	position: fixed;
+}
+
+.title1 {
+	margin-top: 1%;
+	margin-bottom: -1%;
+	padding: 1%
+}
+
+.flex-parent-element {
+	display: flex;
+	width: 50%;
+}
+
+.flex-child-element {
+	flex: 1;
+	margin: 0px;
+	margin-left: 66%;
+}
+
+.flex-child-element:first-child {
+	margin-right: 90%;
+	margin-bottom: 1%;
+	margin-left: 3%;
+}
+
+.page {
+	padding-right: 2.1%;
+	padding-left: 15%;
+	margin-bottom: 0%;
+    margin-top: 41.5%;
+	
+}
+
+</style>
+
+
+<body>
+
+
+	<div class="header">
+
+		<div class="flex-parent-element">
+
+
+			<div class="flex-child-element magenta">
+
+				<a th:href="@{/}"><img src="/image/logo2.png" alt="Company Logo"
+					width="70" height="60"></img> </a>
+			</div>
+			<div class="title1">
+				<h4>ICS</h4>
+			</div>
+			<div class="flex-child-element green">
+
+				<p>
+					<span sec:authentication="principal.username"> User</span>
+				</p>
+
+
+				<div class="date">
+
+					<div id="current_date">Date</div>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<div id="current_time">Hrs</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<ul>
+			<li><a th:href="@{/employeelogin}"><i class='fas'>&#xf0c0;</i> MAIN PAGE</a></li>
+		
+			<li><a th:href="@{/employeeindex}"><i class='fas'>&#xf0c0;</i>
+					EMPLOYEES</a></li>
+			<li><a th:href="new"> <i class='fas'>&#xf234;</i> ADD NEW
+					EMPLOYEE
+			</a></li>
+			<li><a th:href="@{/imageindex}"><i style="font-size: px"
+					class="fa">&#xf03e;</i> IMAGES</a></li>
+			<li><a th:href="@{/register}"><i class="fa fa-user icon"></i>
+					USER FORM</a></li>
+			<li><a th:href="@{/emprequest}"> <i class='fas'>&#xf406; </i>  LEAVE REQUEST</a></li>
+			<li><a th:href="@{/about}"><i style="font-size: px"
+					class="fa">&#xf0c9;</i> ABOUT ME!</a></li>
+			<li style="float: right"><a th:href="@{/logout}">LOGOUT <i
+					style="font-size: 17px" class="fa">&#xf08b;</i></a></li>
+			<li></li>
+
+		</ul>
+	</div>
+
+
+	<div class="search">
+		<form th:action="@{/employeeindex}" class="form-inline my-2 my-lg-0">
+			<input type="text" name="keyword" placeholder="Search....."
+				id="keyword" th:value="${keyword}" required
+				class="form-control mr-sm-2" />
+			<button class="btn btn-success my-2 my-sm-0 " type="submit">
+				<i class="fa fa-search"></i>
+			</button>
+			&nbsp;&nbsp;&nbsp;<input class="btn btn-danger p-1" type="button"
+				value="Clear" id="btnClear" onclick="clearSearch()" />&nbsp;&nbsp;
+			<a class="btn btn-info p-1 my-2 my-sm-0"
+				href="http://localhost:9898/pdf"> <i class="fa fa-file-pdf-o "
+				style="font-size: 17px;"> PDF</i></a>
+
+		</form>
+
+	</div>
+
+
+
+	<div class="table">
+		<table style="width: 70%">
+			<thead class="font-weight-bolder text-green">
+				<tr class="table-primary">
+					<th>ID</th>
+					<th>NAME</th>
+					<th>MOBILE</th>
+					<th>EMAIL</th>
+					<th>DEPARMENT</th>
+					<th>SALARY</th>
+					<th>ACTION</th>
+					<th>ACTION <br></th>
+
+
+
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="employee : ${listEmployees}">
+					<td th:text="${employee.id}">Employee ID</td>
+					<td th:text="${employee.name}">Employee Name</td>
+					<td th:text="${employee.mobile}">Mobile No</td>
+					<td th:text="${employee.email}">Email</td>
+					<td th:text="${employee.department}">Department</td>
+					<td th:text="${employee.Salary}">Salary</td>
+					<td><a th:href="@{'/edit/' + ${employee.id}}" data-bs-dismiss="toast" aria-label="Close"><i class='fas fa-edit' style='font-size:20px'></i></a></td>
+					<td><a th:href="@{'/delete/' + ${employee.id}}" onclick="myFunction()">    <i class="material-icons">delete</i></a></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<ul class="pagination">
+			<li class="page-item disabled"><span class="page-link">Previous</span>
+			</li>
+			<li class="page-item"><a class="page-link"
+				href="@{'/page'+ ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">1</a></li>
+			<li class="page-item active"><span class="page-link"> 2 <span
+					class="sr-only">(current)</span>
+			</span></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link"
+				href="@{'/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
+			</li>
+		</ul>
+	</div>
+
+	<footer>
+		<marquee behavior="scroll" direction="right" scrollamount="12">©
+			2023 ICS (INDIA) LIMITED</marquee>
+	</footer>
+
+
+	<script type="text/javascript">
+		function clearSearch() {
+			window.location = "[[@{employeeindex}]]";
+		}
+	</script>
+
+	<script>
+	function myFunction() {
+		  var x = document.getElementById("snackbar");
+		  x.className = "show";
+		  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 60000);
+		}
+	</script>
+
+
+	<script>
+		document.getElementById('notification').onclick = function() {
+		    jSuites.notification({
+		        name: 'Jsuites toast notification',
+		        message: 'Successfully Update',
+		    })
+		}
+		 
+		document.getElementById('notification-error').onclick = function() {
+		    jSuites.notification({
+		        error: 1,
+		        name: 'Error message',
+		        message: 'Something went wrong',
+		    })
+		}
+	</script>
+
+	<script>
+		time = new Date(); // for now
+		hour = time.getHours(); // => 9
+		min = time.getMinutes(); // =>  30
+		sec = time.getSeconds(); // => 51
+		document.getElementById("current_time").innerHTML = hour + ":" + min
+				+ ":" + sec;
+	</script>
+	<script>
+		date = new Date();
+		year = date.getFullYear();
+		month = date.getMonth() + 1;
+		day = date.getDate();
+		document.getElementById("current_date").innerHTML = day + "/" + month
+				+ "/" + year;
+	</script>
+
+
+</body>
+</html>

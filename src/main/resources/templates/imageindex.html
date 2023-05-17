@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infinite_About</title>
+<script type="text/javascript"
+	src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js'
+	crossorigin='anonymous'></script>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+
+</head>
+
+<style>
+body {
+	font-family: Arial;
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Header/Logo Title */
+.header {
+	text-align: center;
+	background-color: #17014c;
+	color: white;
+	position: fixed;
+	width: 100%;
+	margin-bottom: 0%;
+	padding-top: 0px;
+}
+
+/* Page Content */
+footer {
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	background-color: #17014c;
+	color: #fff;
+	font-size: 15px;
+	color: white;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: white;
+	color: black;
+}
+
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 10px 16px;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+li a:hover:not(.active) {
+	background-color: black;
+	text-decoration: none;
+	color: red;
+	border-bottom: 3px solid red;
+	background: rgba(255, 255, 255, 3.6);
+	box-shadow: 2px 22px 26px rgba(0, 0, 0, 0.4);
+}
+
+.active {
+	background-color: #17014c;
+	text-decoration: none;
+	;
+}
+
+.user {
+	margin-left: 82%;
+	margin-top: -1%;
+	padding-bottom: 10px;
+	padding-top: 0px;
+}
+
+.home {
+	color: black;
+	font-size: 20px;
+	margin-top: 20%;
+	font-weight: 900;
+	position: fixed;
+	text-decoration: none;
+	background-color: white;
+	width: 20%;
+	padding: 14px;
+}
+
+.date {
+	display: flex;
+	font-size: 14px;
+}
+
+.logo {
+	display: flex;
+	margin-right: 90%;
+	margin-bottom: -1%;
+}
+
+.img {
+	display: flex;
+}
+
+.title1 {
+	margin-top: 1%;
+	margin-bottom: -1%;
+	padding: 1%
+}
+
+.flex-parent-element {
+	display: flex;
+	width: 50%;
+}
+
+.flex-child-element {
+	flex: 1;
+	margin: 0px;
+	margin-left: 66%;
+}
+
+.flex-child-element:first-child {
+	margin-right: 90%;
+	margin-bottom: 1%;
+	margin-left: 3%;
+}
+
+.about {
+	margin-left: 30%;
+	margin-top: 14%;
+	margin-right: 42%;
+	margin-bottom: 1%;
+	padding: 4px;
+	width: 50%;
+}
+
+.image {
+	text-align: center;
+	width: 100%;
+	padding-left: 35%;
+	padding-right: 35%;
+	margin-left: 0%;
+	margin-top: 14.2%;
+	margin-right: 82%;
+	margin-bottom: 4.2%;
+}
+
+.codehim-form {
+	max-width: 400px;
+	min-height: 200px;
+	box-sizing: border-box;
+	background: rgba(255, 255, 255, 0.6);
+	box-shadow: 5px 2px 16px rgba(0, 0, 0, 0.4);
+	border-radius: 10px;
+	margin: 20px auto 0 auto;
+	padding: 20px;
+	border-bottom: 6px solid red;
+	border-top: 6px solid red;
+	margin-top: 0%;
+	background-color: black;
+	color: white;
+}
+</style>
+
+<body>
+
+	<div class="header">
+
+		<div class="flex-parent-element">
+
+
+			<div class="flex-child-element magenta">
+
+				<a th:href="@{/}"><img src="/image/logo2.png" alt="Company Logo"
+					width="70" height="60"></img> </a>
+			</div>
+			<div class="title1">
+				<h4>ICS </h4>
+			</div>
+			<div class="flex-child-element green">
+
+				<p>
+					<span sec:authentication="principal.username"> User</span>
+				</p>
+
+
+				<div class="date">
+
+					<div id="current_date">Date</div>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<div id="current_time">Hrs</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+		<ul>
+		<li><a th:href="@{/employeelogin}"><i class='fas'>&#xf0c0;</i> MAIN PAGE</a></li>
+			<li><a th:href="@{/employeeindex}"><i class='fas'>&#xf0c0;</i>
+					EMPLOYEES</a></li>
+			<li><a th:href="new"> <i class='fas'>&#xf234;</i> ADD NEW
+					EMPLOYEE
+			</a></li>
+			<li><a href="/image/display"><i style="font-size: 17px"
+					class="fa">&#xf03e;</i> VIEW IMAGES</a></li>
+			<li><a th:href="@{/register}"><i class="fa fa-user icon"></i>
+					USER FORM</a></li>
+					<li><a th:href="@{/emprequest}"> <i class='fas'>&#xf406; </i>  LEAVE REQUEST</a></li>
+			<li><a th:href="@{/about}"><i style="font-size: 17px"
+					class="fa">&#xf0c9;</i> ABOUT ME!</a></li>
+			<li style="float: right"><a th:href="@{/logout}">LOGOUT <i
+					style="font-size: 17px" class="fa">&#xf08b;</i></a></li>
+
+		</ul>
+
+	</div>
+
+	<div class="image">
+		<form class="codehim-form">
+
+			<div class=" contact-form1 form-group text-left">
+				<label class="col-form-label">Name</label> <input type="text"
+					class="form-control" placeholder="Product Name" id="name"
+					name="name" required="required">
+				<p id="error_name"></p>
+			</div>
+
+			<div class=" contact-form1 form-group text-left">
+				<label class="col-form-label">Image</label> <input type="file"
+					class="form-control" placeholder="" name="image" id="image"
+					required="required">
+				<p id="error_file"></p>
+			</div>
+
+			<div class=" contact-form1 form-group text-left">
+				<label class="col-form-label">Price</label> <input type="text"
+					class="form-control" placeholder="Price" name="price" id="price"
+					required="required">
+				<p id="error_price"></p>
+			</div>
+
+
+			<div class="right-w3l">
+				<input type="button" id="submit"
+					th:attr="onclick='return confirm(\'Are you sure you want to Upload this Image?\')'"
+					class="btn btn-success  p-2 " value="Submit"> <br> <br>
+			</div>
+
+
+			<div id="success" class="text-center" style="color: green;"></div>
+			<div id="error" class="text-center" style="color: red;"></div>
+		</form>
+	</div>
+
+
+
+	<footer>
+		<marquee behavior="scroll" direction="right" scrollamount="12">©
+			2023 ICS (INDIA) LIMITED</marquee>
+	</footer>
+
+
+
+	<script>
+		date = new Date();
+		year = date.getFullYear();
+		month = date.getMonth() + 1;
+		day = date.getDate();
+		document.getElementById("current_date").innerHTML = day + "/" + month
+				+ "/" + year;
+	</script>
+	<script>
+		time = new Date(); // for now
+		hour = time.getHours(); // => 9
+		min = time.getMinutes(); // =>  30
+		sec = time.getSeconds(); // => 51
+		document.getElementById("current_time").innerHTML = hour + ":" + min
+				+ ":" + sec;
+	</script>
+
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNVeK5T"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Registration</title>
+</head>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+
+<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<style type="text/css">
+.header {
+	padding: 20px;
+	text-align: center;
+	background-color: #17014c;
+	font-size: 25px;
+	color: white;
+	border-bottom: 1.5px solid black;
+	box-shadow: 13px 20px 300px -33px rgba(255, 255, 255, 1);
+}
+
+footer {
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	background-color: #17014c;
+	color: #fff;
+	font-size: 15px;
+	color: white;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	border-left: 8px solid #32de84;
+	border-right: 8px solid #32de84;
+}
+
+body {
+	background-color: #17014c;
+}
+
+.form-control, .btn {
+	min-height: 38px;
+	border-radius: 2px;
+}
+
+.reg {
+	text-align: center;
+	width: 100%;
+	padding-left: 30%;
+	padding-right: 35%;
+	color: white;
+}
+
+.wellcome {
+	margin: auto;
+	width: 100%;
+	padding: 30px;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: white;
+}
+
+.codehim-form {
+	max-width: 500px;
+	min-height: 400px;
+	box-sizing: border-box;
+	background: rgba(255, 255, 255, 0.6);
+	box-shadow: 13px 20px 300px -33px rgba(255, 255, 255, 1);
+	border-radius: px;
+	margin: 1.5% auto 0 auto;
+	padding: 15px;
+	color: #414141;
+}
+
+.control-label {
+	margin-left: 16%;
+	margin-top: 0%;
+}
+
+.cm-input {
+	display: block;
+	box-sizing: border-box;
+	padding: 10px;
+	width: 70%;
+	border-radius: 0px;
+	border: 1px solid #6495ED;
+	margin-bottom: 10px;
+	margin-left: 70px;
+	margin-top: 0px;
+}
+
+.cm-input:focus {
+	outline: 0;
+	border-color: #414141;
+}
+
+.cm-input:invalid {
+	border-left: 8px solid red;
+}
+
+.cm-input:valid {
+	border-left: 8px solid #32de84;
+}
+
+/* Login Button Design */
+.btn-login {
+	display: flex;
+	justify-content: center;
+	width: 40%;
+	padding: 10px;
+	border: 0;
+	color: black;
+	border-radius: 0px;
+	cursor: pointer;
+	margin-left: 30%;
+	background: #7FFFD4;
+}
+
+.btn-login:focus {
+	outline: 0;
+}
+
+.btn-login:hover {
+	opacity: 0.5;
+	transition: .3s;
+}
+
+/* Gradient Background */
+.gr-bg {
+	background: rgb(34, 193, 195);
+	background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%,
+		rgba(29, 103, 139, 1) 0%, rgba(23, 1, 76, 1) 92%);
+}
+
+.ga-bg {
+	background: rgb(255, 0, 0);
+	background: linear-gradient(179deg, rgba(255, 0, 0, 1) 0%,
+		rgba(139, 77, 132, 1) 45%, rgba(67, 42, 124, 1) 100%);
+}
+
+.btn-log {
+	text-decoration: none;
+	display: block;
+	width: 40%;
+	padding: 10px;
+	border: 0;
+	color: #fff;
+	border-radius: 20px;
+	cursor: pointer;
+	margin: auto;
+	text-align: center;
+}
+
+.btn-log:focus {
+	outline: 0;
+}
+
+.btn-log:hover {
+	opacity: 0.2;
+	transition: .5s;
+}
+</style>
+
+<body >
+		<div class="header">
+			  <h4>ICS INDIA LIMITED</h4> 
+		</div>
+		
+			
+	<div class="container">
+		<div >
+			<div class="re" >
+
+				<div th:if="${param.success}">
+					<div class="alert alert-info">You've successfully registered
+						to our awesome!</div>
+				</div>
+				
+				
+
+				<form class="codehim-form" th:action="@{/registration}" method="post" th:object="${user}">
+
+					<div class="form-title">
+						
+						<h4 class="text-dark text-center font-weight-bold">Admin Registration Page</h4>
+					</div><br>
+
+					<div class="form-group text-left">
+						<label class="control-label" for="firstName"> First Name </label>
+						<input id="firstName" class="cm-input" th:field="*{firstName}" placeholder ="Enter Your First Name" required/>
+					</div>
+
+					<div class="form-group text-left">
+						<label class="control-label" for="lastName"> Last Name </label> <input
+							id="lastName" class="cm-input" th:field="*{lastName}" placeholder ="Enter Your Last Name" required  />
+					</div>
+
+					<div class="form-group text-left">
+						<label class="control-label" for="email"> Email </label> <input type="email"
+							id="email" class="cm-input" th:field="*{email}" placeholder ="Enter Your Email" required/>
+					</div>
+
+					<div class="form-group text-left">
+						<label class="control-label" for="password"> Password </label> <input
+							id="password" class="cm-input" type="password" th:field="*{password}" placeholder ="Enter Your Password" required  />
+					</div><hr>
+
+					<div class="form-group text-center">
+						<button type="submit" class="btn-login  ">Register</button><br>
+								
+					<div class="">
+						<span>Already registered? <a href="/" th:href="@{/login} ">Login here</a></span>
+					</div> 
+								
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<footer>
+		<marquee behavior="scroll" direction="right" scrollamount="12">©
+			2023 ICS (INDIA) LIMITED</marquee>
+	</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNVeK5T" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
